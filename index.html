@@ -1,14 +1,193 @@
-<html>
+<!DOCTYPE html>
+<html lang='en' ng-app="admin-console">
 
 <head>
     <title> Admin Panel </title>
     <meta charset="UTF-8">
     <link href="node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="node_modules/angular/angular.min.js"></script>
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+    <script src="js/app.js"></script>
 </head>
 
-<body>
+<body ng-controller='AdminController'>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal modal-fixed-footer">
+        <div class="modal-content">
+            <h4>Edit Hacker</h4>
+            <section>
+                <div class="row">
+                    <div class="col l3">
+                        <label for="edit-fname"> First Name </label>
+                        <input type="text" ng-model="active_hacker.user_data.first_name" id="edit-fname">
+                    </div>
+                    <div class="col l3">
+                        <label for="edit-lname"> Last Name </label>
+                        <input type="text" ng-model="active_hacker.user_data.last_name" id="edit-lname">
+                    </div>
+                    <div class="col l3">
+                        <label for="edit-email"> Email </label>
+                        <input type="email" ng-model="active_hacker.user_data.email" id="edit-email">
+                    </div>
+                    <div class="col l3">
+                        <label for="edit-pnum"> Phone Number </label>
+                        <input type="text" ng-model="active_hacker.user_data.phone_number" id="edit-pnum">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l3">
+                        <label for="edit-major"> Major </label>
+                        <input type="text" ng-model="active_hacker.user_data.major" id="edit-major">
+                    </div>
+                    <div class="col l6">
+                        <label for="edit-school"> School </label>
+                        <input type="text" ng-model="active_hacker.user_data.school_name" id="edit-school">
+                    </div>
+                    <div class="col l3">
+                        <label for="edit-shirt"> Shirt Size </label>
+                        <input type="text" ng-model="active_hacker.user_data.shirt_size" id="edit-shirt">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l4">
+                        <label for="edit-apply-date">Apply Date</label>
+                        <input type="datetime-local" id="edit-apply-date" ng-model="active_hacker.user_data.apply_date">
+                    </div>
+                    <div class="col l3">
+                        <label for="edit-dob"> Date of Birth </label>
+                        <input type="date" id="edit-dob" ng-model="active_hacker.user_data.date_of_birth">
+                    </div>
+                    <div class="col l2">
+                        <label for="edit-gh">Github</label>
+                        <input type="url" id="edit-gh" ng-model="active_hacker.user_data.github">
+                    </div>
+                    <div class="col l3">
+                        <label for="edit-web">Website</label>
+                        <input type="url" id="edit-web" ng-model="active_hacker.user_data.website">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l3">
+                        <label for="edit-rsvp-date">RSVP By Date </label>
+                        <input type="date" id="edit-rsvp-date" ng-model="active_hacker.user_data.rsvp_by">
+                    </div>
+                    <div class="col l3">
+                        <label for="edit-grad-date"> Graduation Date </label>
+                        <input type="date" id="edit-grad-date" ng-model="active_hacker.user_data.graduation">
+                    </div>
+                    <div class="col l3">
+                        <label for="edit-gender"> Gender </label>
+                        <input type="text" id="edit-gender" ng-model="active_hacker.user_data.gender">
+                    </div>
+                    <div class="col l3">
+                        <label for="edit-resume"> Resume Location </label>
+                        <input type="url" id="edit-resume" ng-model="active_hacker.user_data.resume_location">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l3">
+                        <label for="edit-travel-method"> Travel Method </label>
+                        <input type="text" id="edit-travel-method" ng-model="active_hacker.user_data.preferred_travel_method">
+                    </div>
+                    <div class="col l3">
+                        <label for="edit-travel-cost">Travel Cost</label>
+                        <input type="number" id="edit-travel-cost" ng-model="active_hacker.user_data.travel_cost">
+                    </div>
+                    <div class="col l3 center-align">
+                        <h7> Admin Status </h7>
+                        <div class="switch">
+                            <label>
+                                <input id="edit-admin" type="checkbox" ng-model="active_hacker.user_data.is_admin">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col l3 center-align">
+                        <h7> Travel Reimbursement </h7>
+                        <div class="switch">
+                            <label>
+                                <input id="edit-reimbursement" type="checkbox" ng-model="active_hacker.user_data.needs_reimbursement">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l3 center-align">
+                        <h7> MLH Code of Conduct </h7>
+                        <div class="switch">
+                            <label>
+                                <input id="edit-mlh-conduct" type="checkbox" ng-model="active_hacker.user_data.accepts_mlh_code">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col l3 center-align">
+                        <h7> MLH Media Release </h7>
+                        <div class="switch">
+                            <label>
+                                <input id="edit-mlh-media" type="checkbox" ng-model="active_hacker.user_data.accepts_mlh_release">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col l3 center-align">
+                        <h7> Checked In </h7>
+                        <div class="switch">
+                            <label>
+                                <input id="edit-check-in-stat" type="checkbox" ng-model="active_hacker.user_data.checked_in">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col l3 center-align">
+                        <h7> RSVP'd </h7>
+                        <div class="switch">
+                            <label>
+                                <input id="edit-rsvp-stat" type="checkbox" ng-model="active_hacker.user_data.rsvp">
+                                <span class="lever"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col l4">
+                        <label for="edit-dietary">Dietary Restrictions</label>
+                        <textarea id="edit-dietary" ng-model="                            active_hacker.user_data.dietary_restrictions">
+                        </textarea>
+                    </div>
+                    <div class="col l4">
+                        <label for="edit-notes">Notes</label>
+                        <textarea id="edit-notes" ng-model="                            active_hacker.user_data.notes">
+
+                        </textarea>
+                    </div>
+                    <div class="col l4">
+                        <label for="edit-disability">Special Needs</label>
+                        <textarea id="edit-disability" ng-model="                            active_hacker.user_data.special_needs">
+                        </textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col l6">
+                        <select class="browser-default">
+                            <option selected>Choose your option</option>
+                        </select>
+                    </div>
+                    <div class="input-field col l6">
+                        <select class="browser-default">
+                            <option selected>Choose your option</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+        </div>
+    </div>
     <style>
     li {
         padding: 5 !important;
@@ -31,311 +210,172 @@
     textarea {
         resize: none;
     }
+    
+    ul.collection:first-of-type {
+        margin-bottom: 0px;
+    }
+    
+    ul.collection:last-of-type {
+        margin-top: 0px;
+        border-top: none;
+    }
+    
+    nav div.col.l2 div.switch label {
+        color: white;
+    }
+    li.collection-item.row.center-align button.link {
+        color:blue;
+        background: transparent;
+        border: none
+    }
     </style>
     <div class="row">
         <nav class="valign-wrapper">
-            <h3 style="margin:0;" class="valign">Testing</h3>
-        </nav>
+            <div class="col l10">
+                <h3 style="margin:0;" class="valign">Admin Panel</h3>
+            </div>
+            <div class="col l2 center-align">
+                <div class="switch">
+                    <label>
+                        Accept
+                        <input id="edit-mode" type="checkbox">
+                        <span class="lever"></span> Check In
+                    </label>
+                </div>
+            </div </nav>
     </div>
     <div class="container" style="width: 95%">
         <div id="filter-label-row" class="row">
             <div class="col l1">
                 <label for="uid-filter"> User ID </label>
-                <input id="uid-filter" type="number">
+                <input id="uid-filter" type="number" ng-model="user_id" ng-change="filter_by_propery('user_id')">
             </div>
             <div class="col l2">
                 <label for="name-filter"> Name </label>
-                <input id="name-filter" type="text">
+                <input id="name-filter" type="text" ng-model='first_name' ng-change="filter_by_property('first_name');">
             </div>
             <div class="col l2">
                 <label for="phone-filter"> Phone </label>
-                <input id="phone-filter" type="text">
+                <input id="phone-filter" type="text" ng-model="phone_number" ng-change="filter_by_property('phone_number')">
             </div>
             <div class="col l3">
                 <label for="school-filter"> School </label>
-                <input id="School-filter" type="text">
+                <input id="School-filter" type="text" ng-model="school_name" ng-change="filter_by_property('school_name')">
             </div>
             <div class="col l2">
                 <label for="email-filter"> Email </label>
-                <input id="email-filter" type="text">
+                <input id="email-filter" type="text" ng-model="email" ng-change="filter_by_property('email')">
             </div>
         </div>
-        <section style="overflow-y:auto; height:calc(70%);">
+        <ul class="collection">
+            <li class="collection-item row center-align valign-wrapper">
+                <div class="col l1 valign">
+                    <button class="link" ng-click="sort_by_property('user_id')">
+                        <h6>ID</h6>
+                    </button>
+                </div>
+                <div class="col l2 valign">
+                    <button class="link" ng-click="sort_by_property('first_name')">
+                        <h6> Name </h6>
+                    </button>
+                </div>
+                <div class="col l2 valign">
+                    <button class="link" ng-click="sort_by_property('phone_number')">
+                        <h6> Phone Number </h6>
+                    </button>
+                </div>
+                <div class="col l3 valign">
+                    <button class="link" ng-click="sort_by_property('school_name')">
+                        <h6> School Name </h6>
+                    </button>
+                </div>
+                <div class="col l2 valign">
+                    <button class="link" ng-click="sort_by_property('email')">
+                        <h6> Email </h6>
+                    </button>
+                </div>
+                <div class="col l2">
+                    <h6> Deny | Accept | Edit | Info </h6>
+                </div>
+            </li>
+        </ul>
+        <section style="overflow-y:auto; height:38.5rem;">
             <ul class="collection">
-                <li class="collection-item row center-align valign-wrapper">
+                <li class="collection-item row center-align valign-wrapper" ng-repeat="hacker in visible_hackers">
                     <div class="col l1 valign">
-                        1
+                        {{hacker.user_data.user_id}}
                     </div>
                     <div class="col l2 valign">
-                        Freddy Frederickson
+                        {{hacker.user_data.first_name}} {{hacker.user_data.last_name}}
                     </div>
                     <div class="col l2 valign">
-                        555-555-5555
+                        {{hacker.user_data.phone_number}}
                     </div>
                     <div class="col l3 valign">
-                        University of AWESOME UNIVERSITY
+                        {{hacker.user_data.school_name}}
                     </div>
                     <div class="col l2 valign">
-                        freddy@awesome.edu
+                        {{hacker.user_data.email}}
                     </div>
                     <div class="col l2">
-                        <button onclick="alert('hello!');" class="btn-collapse btn-floating waves-effect waves-light red">+</button>
-                        <button onclick="alert('hello!');" class="btn-floating waves-effect waves-light red">+</button>
-                        <button href="#modal1" class="btn-floating waves-effect waves-light modal-trigger">PENCIl</button>
-                        <button data-activates="slide-out" class="button-collapse btn-floating waves-effect waves-light red">EX</button>
+                        <button class="btn-collapse btn-floating waves-effect waves-light red" disabled><i class="material-icons">close</i></button>
+                        <button class="btn-floating waves-effect waves-light red"><i class="material-icons">done</i></button>
+                        <button ng-click="openEditModal(hacker)" class="btn-floating waves-effect waves-light modal-trigger"><i class="material-icons">mode_edit</i></button>
+                        <button ng-click="openSideBar(hacker)" class="btn-floating waves-effect waves-light red"><i class="material-icons">info_outline</i></button>
                     </div>
                 </li>
             </ul>
         </section>
+        <a href="#" data-activates="slide-out" class="button-collapse"></a>
         <ul id="slide-out" class="side-nav">
             <li>
                 <div class="userView">
-                    <h4>John Doe</h4>
-                    <h5> University of North Carolina at Chapel Hill </h5>
-                    <h6>jdandturk@gmail.com</h6>
-                    <h6> 666 666 6666 </h6>
-                    <h6> Current Status : </h6>
-                    <h6> Pending Status : </h6>
+                    <h4>{{active_hacker.user_data.first_name}} {{active_hacker.user_data.last_name}}</h4>
+                    <h5> {{active_hacker.user_data.school_name}} </h5>
+                    <h6> {{active_hacker.user_data.email}}</h6>
+                    <h6> {{active_hacker.user_data.phone}} </h6>
+                    <h6> Visible Status : {{active_hacker.user_data.visible_status}} </h6>
+                    <h6> Pending Status : {{active_hacker.user_data.pending_status}}</h6>
                     <hr>
                     <h5> General Info: </h5>
-                    <h6> T-Shirt : </h6>
-                    <h6> Age : </h6>
-                    <h6> DOB: </h6>
-                    <h6> Gender: </h6>
-                    <h6> Checked In: </h6>
-                    <h6> Graduation : </h6>
-                    <h6> Website : </h6>
-                    <h6> Major : </h6>
+                    <h6> T-Shirt : {{active_hacker.user_data.shirt_size}}</h6>
+                    <h6> Age : {{active_hacker.user_data.age}}</h6>
+                    <h6> DOB: {{active_hacker.user_data.date_of_birth}}</h6>
+                    <h6> Gender: {{active_hacker.user_data.gender}}</h6>
+                    <h6> Checked In: {{active_hacker.user_data.checked_in}}</h6>
+                    <h6> Graduation : {{active_hacker.user_data.graduation}}</h6>
+                    <h6> Website : {{active_hacker.user_data.website}}</h6>
+                    <h6> Major : {{active_hacker.user_data.major}}</h6>
                     <hr>
                     <h5> RSVP </h5>
-                    <h6> RSVP Status </h6>
-                    <h6> RSVP Date </h6>
-                    <h6> RSVP By </h6>
+                    <h6> RSVP Status: {{active_hacker.user_data.rsvp_status}} </h6>
+                    <h6> RSVP Date: {{active_hacker.user_data.rsvp_date}}</h6>
+                    <h6> RSVP By: {{active_hacker.user_data.rsvp_by}}</h6>
                     <hr>
                     <h5> Travel Stuff: </h5>
-                    <h6> Reimbursement: </h6>
-                    <h6> Travel Method: </h6>
-                    <h6> Travel Cost : </h6>
+                    <h6> Reimbursement: {{active_hacker.user_data.needs_reimbursement}}</h6>
+                    <h6> Travel Method: {{active_hacker.user_data.preferred_travel_method}}</h6>
+                    <h6> Travel Cost : {{active_hacker.user_data.travel_cost}}</h6>
                     <hr>
                     <h5> Team Stuff </h5>
-                    <h6> Team Name: </h6>
+                    <h6> Team Name: {{active_hacker.user_data.team_name}}</h6>
                     <h6> Team Mates: </h6>
-                    <h7> Person A </h7>
-                    <h7> Person B </h7>
+                    <h7 ng-repet> {{teammate.first_name}} {{teammate.last_name}} </h7>
                     <hr>
                     <h5> House Keeping: </h5>
-                    <h6> MLH Code of Conduct </h6>
-                    <h6> MLH Media Release </h6>
+                    <h6> MLH Code of Conduct: {{active_hacker.user_data.accepts_mlh_code}} </h6>
+                    <h6> MLH Media Release: {{active_hacker.user_data.accepts_mlh_release}}</h6>
                 </div>
             </li>
         </ul>
-        <!-- Modal Structure -->
-        <div id="modal1" class="modal modal-fixed-footer">
-            <div class="modal-content">
-                <h4>Edit Hacker</h4>
-                <section>
-                    <!--
-  "team_mates": [
-    "You're not currently on a team"
-  ], 
-  "user_data": {
-    "pending_status": "x", 
-    "resume_location": "None", 
-    "rsvp_date": "None", 
-    "team_name": "None",   
-    "visible_status": "o", 
-  }
-} -->
-                    <div class="row">
-                        <div class="col l3">
-                            <label for="edit-fname"> First Name </label>
-                            <input type="text" value="John" id="edit-fname">
-                        </div>
-                        <div class="col l3">
-                            <label for="edit-lname"> Last Name </label>
-                            <input type="text" value="Doe" id="edit-lname">
-                        </div>
-                        <div class="col l3">
-                            <label for="edit-email"> Email </label>
-                            <input type="email" value="jdoe@gmail.com" id="edit-email">
-                        </div>
-                        <div class="col l3">
-                            <label for="edit-pnum"> Phone Number </label>
-                            <input type="text" value="555-555-5555" id="edit-pnum">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col l3">
-                            <label for="edit-major"> Major </label>
-                            <input type="text" value="Computer Science" id="edit-major">
-                        </div>
-                        <div class="col l6">
-                            <label for="edit-school"> School </label>
-                            <input type="text" value="University of North Carolina at Chapel Hill" id="edit-school">
-                        </div>
-                        <div class="col l3">
-                            <label for="edit-shirt"> Shirt Size </label>
-                            <input type="text" value="S" id="edit-shirt">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col l4">
-                            <label for="edit-apply-date">Apply Date</label>
-                            <input type="datetime-local" id="edit-apply-date">
-                        </div>
-                        <div class="col l3">
-                            <label for="edit-dob"> Date of Birth </label>
-                            <input type="date" id="edit-dob">
-                        </div>
-                        <div class="col l2">
-                            <label for="edit-gh">Github</label>
-                            <input type="url" id="edit-gh">
-                        </div>
-                        <div class="col l3">
-                            <label for="edit-web">Website</label>
-                            <input type="url" id="edit-web">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col l3">
-                            <label for="edit-rsvp-date">RSVP By Date </label>
-                            <input type="date" id="edit-rsvp-date">
-                        </div>
-                        <div class="col l3">
-                            <label for="edit-grad-date"> Graduation Date </label>
-                            <input type="date" id="edit-grad-date">
-                        </div>
-                        <div class="col l3">
-                            <label for="edit-gender"> Gender </label>
-                            <input type="text" id="edit-gender">
-                        </div>
-                        <div class="col l3">
-                            <label for="edit-resume"> Resume Location </label>
-                            <input type="url" id="edit-resume">
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col l3">
-                            <label for="edit-travel-method"> Travel Method </label>
-                            <input type="text" id="edit-travel-method" value="spaceship">
-                        </div>
-                        <div class="col l3">
-                            <label for="edit-travel-cost">Travel Cost</label>
-                            <input type="number" id="edit-travel-cost" value="50.00">
-                        </div>
-                        <div class="col l3 center-align">
-                            <h7> Admin Status </h7>
-                            <div class="switch">
-                                <label>
-                                    <input id="edit-mlh-conduct" type="checkbox">
-                                    <span class="lever"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col l3 center-align">
-                            <h7> Travel Reimbursement </h7>
-                            <div class="switch">
-                                <label>
-                                    <input id="edit-mlh-conduct" type="checkbox">
-                                    <span class="lever"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col l3 center-align">
-                            <h7> MLH Code of Conduct </h7>
-                            <div class="switch">
-                                <label>
-                                    <input id="edit-mlh-conduct" type="checkbox">
-                                    <span class="lever"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col l3 center-align">
-                            <h7> MLH Media Release </h7>
-                            <div class="switch">
-                                <label>
-                                    <input id="edit-mlh-media" type="checkbox">
-                                    <span class="lever"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col l3 center-align">
-                            <h7> Checked In </h7>
-                            <div class="switch">
-                                <label>
-                                    <input id="edit-check-in-stat" type="checkbox">
-                                    <span class="lever"></span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col l3 center-align">
-                            <h7> RSVP'd </h7>
-                            <div class="switch">
-                                <label>
-                                    <input id="edit-rsvp-stat" type="checkbox">
-                                    <span class="lever"></span>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col l4">
-                            <label for="edit-dietary">Dietary Restrictions</label>
-                            <textarea id="edit-dietary">
-                            </textarea>
-                        </div>
-                        <div class="col l4">
-                            <label for="edit-notes">Notes Restrictions</label>
-                            <textarea id="edit-notes">
-                            </textarea>
-                        </div>
-                        <div class="col l4">
-                            <label for="edit-disability">Special Needs</label>
-                            <textarea id="edit-disability">
-                            </textarea>
-                        </div>
-                    </div>
-                    <div class="row">
-                      <div class="input-field col l6">
-                        <select>
-                          <option value="" disabled selected>Choose your option</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                        <label>Pending Status</label>
-                      </div>
-                   <div class="input-field col l6">
-                        <select>
-                          <option value="" disabled selected>Choose your option</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                        </select>
-                        <label>Visible Status</label>
-                      </div>
-                    </div>
-                </section>
-            </div>
-            <div class="modal-footer">
-                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
-            </div>
-        </div>
     </div>
 </body>
 <script>
 // Initialize collapse button
 $(".button-collapse").sideNav({
+    menuWidth: 350,
     edge: 'left'
 });
-$('.modal-trigger').leanModal({
-    dismissible: false
-});
-
-    $('select').material_select();
-
 </script>
 
 </html>

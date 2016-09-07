@@ -1,0 +1,183 @@
+<!-- Modal Structure -->
+<div id="modal1" class="modal modal-fixed-footer">
+    <div class="modal-content">
+        <h4>Edit Hacker</h4>
+        <section>
+            <div class="row">
+                <div class="col l3">
+                    <label for="edit-fname"> First Name </label>
+                    <input type="text" value="{{active_hacker.user_data.first_name}}" id="edit-fname">
+                </div>
+                <div class="col l3">
+                    <label for="edit-lname"> Last Name </label>
+                    <input type="text" value="{{active_hacker.user_data.last_name}}" id="edit-lname">
+                </div>
+                <div class="col l3">
+                    <label for="edit-email"> Email </label>
+                    <input type="email" value="{{active_hacker.user_data.email}}" id="edit-email">
+                </div>
+                <div class="col l3">
+                    <label for="edit-pnum"> Phone Number </label>
+                    <input type="text" value="{{active_hacker.user_data.phone_number}}" id="edit-pnum">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l3">
+                    <label for="edit-major"> Major </label>
+                    <input type="text" value="{{active_hacker.user_data.major}}" id="edit-major">
+                </div>
+                <div class="col l6">
+                    <label for="edit-school"> School </label>
+                    <input type="text" value="{{active_hacker.user_data.school_name}}" id="edit-school">
+                </div>
+                <div class="col l3">
+                    <label for="edit-shirt"> Shirt Size </label>
+                    <input type="text" value="{{active_hacker.user_data.shirt_size}}" id="edit-shirt">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l4">
+                    <label for="edit-apply-date">Apply Date</label>
+                    <input type="datetime-local" id="edit-apply-date" value="{{active_hacker.user_data.apply_date}}">
+                </div>
+                <div class="col l3">
+                    <label for="edit-dob"> Date of Birth </label>
+                    <input type="date" id="edit-dob" value="{{active_hacker.user_data.date_of_birth}}">
+                </div>
+                <div class="col l2">
+                    <label for="edit-gh">Github</label>
+                    <input type="url" id="edit-gh" value="{{active_hacker.user_data.github}}">
+                </div>
+                <div class="col l3">
+                    <label for="edit-web">Website</label>
+                    <input type="url" id="edit-web" value="{{active_hacker.user_data.website}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l3">
+                    <label for="edit-rsvp-date">RSVP By Date </label>
+                    <input type="date" id="edit-rsvp-date" value="{{active_hacker.user_data.rsvp_by}}">
+                </div>
+                <div class="col l3">
+                    <label for="edit-grad-date"> Graduation Date </label>
+                    <input type="date" id="edit-grad-date" value="{{active_hacker.user_data.graduation}}">
+                </div>
+                <div class="col l3">
+                    <label for="edit-gender"> Gender </label>
+                    <input type="text" id="edit-gender" value="{{active_hacker.user_data.gender}}">
+                </div>
+                <div class="col l3">
+                    <label for="edit-resume"> Resume Location </label>
+                    <input type="url" id="edit-resume" value="{{active_hacker.user_data.resume_location}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l3">
+                    <label for="edit-travel-method"> Travel Method </label>
+                    <input type="text" id="edit-travel-method" value="{{active_hacker.user_data.preferred_travel_method}}">
+                </div>
+                <div class="col l3">
+                    <label for="edit-travel-cost">Travel Cost</label>
+                    <input type="number" id="edit-travel-cost" value="{{active_hacker.user_data.travel_cost}}">
+                </div>
+                <div class="col l3 center-align">
+                    <h7> Admin Status </h7>
+                    <div class="switch">
+                        <label>
+                            <input id="edit-admin" type="checkbox" ng-enabled="{{active_hacker.user_data.is_admin}}">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col l3 center-align">
+                    <h7> Travel Reimbursement </h7>
+                    <div class="switch">
+                        <label>
+                            <input id="edit-reimbursement" type="checkbox" ng-enabled="{{active_hacker.user_data.needs_reimbursement}}">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l3 center-align">
+                    <h7> MLH Code of Conduct </h7>
+                    <div class="switch">
+                        <label>
+                            <input id="edit-mlh-conduct" type="checkbox" ng-enabled="{{active_hacker.user_data.accepts_mlh_code}}">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col l3 center-align">
+                    <h7> MLH Media Release </h7>
+                    <div class="switch">
+                        <label>
+                            <input id="edit-mlh-media" type="checkbox" ng-enabled="{{active_hacker.user_data.accepts_mlh_release}}">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col l3 center-align">
+                    <h7> Checked In </h7>
+                    <div class="switch">
+                        <label>
+                            <input id="edit-check-in-stat" type="checkbox" ng-enabled="{{active_hacker.user_data.checked_in}}">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col l3 center-align">
+                    <h7> RSVP'd </h7>
+                    <div class="switch">
+                        <label>
+                            <input id="edit-rsvp-stat" type="checkbox" ng-enabled="{{active_hacker.user_data.rsvp}}">
+                            <span class="lever"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l4">
+                    <label for="edit-dietary">Dietary Restrictions</label>
+                    <textarea id="edit-dietary">
+                        {{active_hacker.user_data.dietary_restrictions}}
+                    </textarea>
+                </div>
+                <div class="col l4">
+                    <label for="edit-notes">Notes</label>
+                    <textarea id="edit-notes">
+                        {{active_hacker.user_data.notes}}
+                    </textarea>
+                </div>
+                <div class="col l4">
+                    <label for="edit-disability">Special Needs</label>
+                    <textarea id="edit-disability">
+                        {{active_hacker.user_data.special_needs}}
+                    </textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col l6">
+                    <select class="browser-default">
+                        <option value="" selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+                <div class="input-field col l6">
+                    <select class="browser-default">
+                        <option value="" selected>Choose your option</option>
+                        <option value="1">Option 1</option>
+                        <option value="2">Option 2</option>
+                        <option value="3">Option 3</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+    </div>
+</div>
