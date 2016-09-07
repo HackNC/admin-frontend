@@ -1,0 +1,341 @@
+<html>
+
+<head>
+    <title> Admin Panel </title>
+    <meta charset="UTF-8">
+    <link href="node_modules/materialize-css/dist/css/materialize.min.css" rel="stylesheet" type="text/css">
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="node_modules/materialize-css/dist/js/materialize.min.js"></script>
+</head>
+
+<body>
+    <style>
+    li {
+        padding: 5 !important;
+    }
+    
+    h5,
+    h6,
+    h4,
+    h7 {
+        margin: 0.4rem !important;
+    }
+    
+    h7 {
+        font-size: 10pt;
+        line-height: 1.5;
+        display: block;
+        text-indent: 1rem;
+    }
+    
+    textarea {
+        resize: none;
+    }
+    </style>
+    <div class="row">
+        <nav class="valign-wrapper">
+            <h3 style="margin:0;" class="valign">Testing</h3>
+        </nav>
+    </div>
+    <div class="container" style="width: 95%">
+        <div id="filter-label-row" class="row">
+            <div class="col l1">
+                <label for="uid-filter"> User ID </label>
+                <input id="uid-filter" type="number">
+            </div>
+            <div class="col l2">
+                <label for="name-filter"> Name </label>
+                <input id="name-filter" type="text">
+            </div>
+            <div class="col l2">
+                <label for="phone-filter"> Phone </label>
+                <input id="phone-filter" type="text">
+            </div>
+            <div class="col l3">
+                <label for="school-filter"> School </label>
+                <input id="School-filter" type="text">
+            </div>
+            <div class="col l2">
+                <label for="email-filter"> Email </label>
+                <input id="email-filter" type="text">
+            </div>
+        </div>
+        <section style="overflow-y:auto; height:calc(70%);">
+            <ul class="collection">
+                <li class="collection-item row center-align valign-wrapper">
+                    <div class="col l1 valign">
+                        1
+                    </div>
+                    <div class="col l2 valign">
+                        Freddy Frederickson
+                    </div>
+                    <div class="col l2 valign">
+                        555-555-5555
+                    </div>
+                    <div class="col l3 valign">
+                        University of AWESOME UNIVERSITY
+                    </div>
+                    <div class="col l2 valign">
+                        freddy@awesome.edu
+                    </div>
+                    <div class="col l2">
+                        <button onclick="alert('hello!');" class="btn-collapse btn-floating waves-effect waves-light red">+</button>
+                        <button onclick="alert('hello!');" class="btn-floating waves-effect waves-light red">+</button>
+                        <button href="#modal1" class="btn-floating waves-effect waves-light modal-trigger">PENCIl</button>
+                        <button data-activates="slide-out" class="button-collapse btn-floating waves-effect waves-light red">EX</button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <ul id="slide-out" class="side-nav">
+            <li>
+                <div class="userView">
+                    <h4>John Doe</h4>
+                    <h5> University of North Carolina at Chapel Hill </h5>
+                    <h6>jdandturk@gmail.com</h6>
+                    <h6> 666 666 6666 </h6>
+                    <h6> Current Status : </h6>
+                    <h6> Pending Status : </h6>
+                    <hr>
+                    <h5> General Info: </h5>
+                    <h6> T-Shirt : </h6>
+                    <h6> Age : </h6>
+                    <h6> DOB: </h6>
+                    <h6> Gender: </h6>
+                    <h6> Checked In: </h6>
+                    <h6> Graduation : </h6>
+                    <h6> Website : </h6>
+                    <h6> Major : </h6>
+                    <hr>
+                    <h5> RSVP </h5>
+                    <h6> RSVP Status </h6>
+                    <h6> RSVP Date </h6>
+                    <h6> RSVP By </h6>
+                    <hr>
+                    <h5> Travel Stuff: </h5>
+                    <h6> Reimbursement: </h6>
+                    <h6> Travel Method: </h6>
+                    <h6> Travel Cost : </h6>
+                    <hr>
+                    <h5> Team Stuff </h5>
+                    <h6> Team Name: </h6>
+                    <h6> Team Mates: </h6>
+                    <h7> Person A </h7>
+                    <h7> Person B </h7>
+                    <hr>
+                    <h5> House Keeping: </h5>
+                    <h6> MLH Code of Conduct </h6>
+                    <h6> MLH Media Release </h6>
+                </div>
+            </li>
+        </ul>
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal modal-fixed-footer">
+            <div class="modal-content">
+                <h4>Edit Hacker</h4>
+                <section>
+                    <!--
+  "team_mates": [
+    "You're not currently on a team"
+  ], 
+  "user_data": {
+    "pending_status": "x", 
+    "resume_location": "None", 
+    "rsvp_date": "None", 
+    "team_name": "None",   
+    "visible_status": "o", 
+  }
+} -->
+                    <div class="row">
+                        <div class="col l3">
+                            <label for="edit-fname"> First Name </label>
+                            <input type="text" value="John" id="edit-fname">
+                        </div>
+                        <div class="col l3">
+                            <label for="edit-lname"> Last Name </label>
+                            <input type="text" value="Doe" id="edit-lname">
+                        </div>
+                        <div class="col l3">
+                            <label for="edit-email"> Email </label>
+                            <input type="email" value="jdoe@gmail.com" id="edit-email">
+                        </div>
+                        <div class="col l3">
+                            <label for="edit-pnum"> Phone Number </label>
+                            <input type="text" value="555-555-5555" id="edit-pnum">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col l3">
+                            <label for="edit-major"> Major </label>
+                            <input type="text" value="Computer Science" id="edit-major">
+                        </div>
+                        <div class="col l6">
+                            <label for="edit-school"> School </label>
+                            <input type="text" value="University of North Carolina at Chapel Hill" id="edit-school">
+                        </div>
+                        <div class="col l3">
+                            <label for="edit-shirt"> Shirt Size </label>
+                            <input type="text" value="S" id="edit-shirt">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col l4">
+                            <label for="edit-apply-date">Apply Date</label>
+                            <input type="datetime-local" id="edit-apply-date">
+                        </div>
+                        <div class="col l3">
+                            <label for="edit-dob"> Date of Birth </label>
+                            <input type="date" id="edit-dob">
+                        </div>
+                        <div class="col l2">
+                            <label for="edit-gh">Github</label>
+                            <input type="url" id="edit-gh">
+                        </div>
+                        <div class="col l3">
+                            <label for="edit-web">Website</label>
+                            <input type="url" id="edit-web">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col l3">
+                            <label for="edit-rsvp-date">RSVP By Date </label>
+                            <input type="date" id="edit-rsvp-date">
+                        </div>
+                        <div class="col l3">
+                            <label for="edit-grad-date"> Graduation Date </label>
+                            <input type="date" id="edit-grad-date">
+                        </div>
+                        <div class="col l3">
+                            <label for="edit-gender"> Gender </label>
+                            <input type="text" id="edit-gender">
+                        </div>
+                        <div class="col l3">
+                            <label for="edit-resume"> Resume Location </label>
+                            <input type="url" id="edit-resume">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col l3">
+                            <label for="edit-travel-method"> Travel Method </label>
+                            <input type="text" id="edit-travel-method" value="spaceship">
+                        </div>
+                        <div class="col l3">
+                            <label for="edit-travel-cost">Travel Cost</label>
+                            <input type="number" id="edit-travel-cost" value="50.00">
+                        </div>
+                        <div class="col l3 center-align">
+                            <h7> Admin Status </h7>
+                            <div class="switch">
+                                <label>
+                                    <input id="edit-mlh-conduct" type="checkbox">
+                                    <span class="lever"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col l3 center-align">
+                            <h7> Travel Reimbursement </h7>
+                            <div class="switch">
+                                <label>
+                                    <input id="edit-mlh-conduct" type="checkbox">
+                                    <span class="lever"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col l3 center-align">
+                            <h7> MLH Code of Conduct </h7>
+                            <div class="switch">
+                                <label>
+                                    <input id="edit-mlh-conduct" type="checkbox">
+                                    <span class="lever"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col l3 center-align">
+                            <h7> MLH Media Release </h7>
+                            <div class="switch">
+                                <label>
+                                    <input id="edit-mlh-media" type="checkbox">
+                                    <span class="lever"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col l3 center-align">
+                            <h7> Checked In </h7>
+                            <div class="switch">
+                                <label>
+                                    <input id="edit-check-in-stat" type="checkbox">
+                                    <span class="lever"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col l3 center-align">
+                            <h7> RSVP'd </h7>
+                            <div class="switch">
+                                <label>
+                                    <input id="edit-rsvp-stat" type="checkbox">
+                                    <span class="lever"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col l4">
+                            <label for="edit-dietary">Dietary Restrictions</label>
+                            <textarea id="edit-dietary">
+                            </textarea>
+                        </div>
+                        <div class="col l4">
+                            <label for="edit-notes">Notes Restrictions</label>
+                            <textarea id="edit-notes">
+                            </textarea>
+                        </div>
+                        <div class="col l4">
+                            <label for="edit-disability">Special Needs</label>
+                            <textarea id="edit-disability">
+                            </textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col l6">
+                        <select>
+                          <option value="" disabled selected>Choose your option</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                        <label>Pending Status</label>
+                      </div>
+                   <div class="input-field col l6">
+                        <select>
+                          <option value="" disabled selected>Choose your option</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option>
+                          <option value="3">Option 3</option>
+                        </select>
+                        <label>Visible Status</label>
+                      </div>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Save</a>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+// Initialize collapse button
+$(".button-collapse").sideNav({
+    edge: 'left'
+});
+$('.modal-trigger').leanModal({
+    dismissible: false
+});
+
+    $('select').material_select();
+
+</script>
+
+</html>

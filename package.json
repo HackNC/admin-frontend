@@ -1,0 +1,24 @@
+{
+  "name": "admin-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HackNC/admin-frontend.git"
+  },
+  "author": "drdesai",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HackNC/admin-frontend/issues"
+  },
+  "homepage": "https://github.com/HackNC/admin-frontend#readme",
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^4.0.0-alpha.4",
+    "font-awesome": "^4.6.3"
+  }
+}
